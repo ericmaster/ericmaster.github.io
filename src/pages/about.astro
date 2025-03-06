@@ -1,28 +1,17 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 
+const pageTitle = "About Me";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Ericmaster Ninja | About</title>
-	</head>
-	<body>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-
-		<h1>About</h1>
-
-        <p>My name is Eric Aguayo, I am a software developer and ultra trail runner. 
-        I am passionate about technology and the outdoors. I am currently working on a
-        project to help people get into ultra running. I am also working on a project to
-        help people learn how to code. I am a big fan of the outdoors and I love to run
-        in the mountains. I am also a big fan of technology and I love to learn new things.
-        I am always looking for new challenges and I am always looking for new ways to
-        improve myself.
-        </p>
-	</body>
-</html>
+<BaseLayout pageTitle={pageTitle}>
+  <p>
+    My name is Eric Aguayo, I am a software developer and ultra trail runner. I
+    am passionate about technology and the outdoors. I am currently working on a
+    project to help people get into ultra running. I am also working on a
+    project to help people learn how to code. I am a big fan of the outdoors and
+    I love to run in the mountains. I am also a big fan of technology and I love
+    to learn new things. I am always looking for new challenges and I am always
+    looking for new ways to improve myself.
+  </p>
+</BaseLayout>
