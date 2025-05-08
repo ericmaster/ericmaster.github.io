@@ -2,7 +2,7 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import '@fontsource/poppins';
-import "../styles/global.scss";
+import "../styles/global.css";
 const { pageTitle } = Astro.props;
 ---
 <html lang="en">
@@ -13,7 +13,7 @@ const { pageTitle } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>Eric Aguayo (Ericmaster) | {pageTitle}</title>
   </head>
-  <body>
+  <body class="container">
     <canvas id="constellation-bg" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;"></canvas>
     <Header />
     <h1>{pageTitle}</h1>

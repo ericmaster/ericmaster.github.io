@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+/* Custom base styles using Tailwind utility classes */
+@layer base {
+  html {
+    @apply bg-slate-100 font-sans;
+  }
+  body {
+    @apply mx-auto px-4 leading-relaxed;
+  }
+  * {
+    @apply box-border;
+  }
+  h1 {
+    @apply my-4 text-4xl;
+  }
+}
+
+/* Navigation styles */
+@layer components {
+  .hamburger {
+    @apply pr-5 cursor-pointer;
+  }
+  .hamburger .line {
+    @apply block w-10 h-1.5 mb-2.5 bg-white;
+  }
+  .nav-links {
+    @apply w-full top-20 left-12 hidden m-0;
+  }
+  .nav-links a {
+    @apply block text-center py-2.5 no-underline text-lg font-bold uppercase hover:bg-orange-300 focus:bg-orange-300;
+  }
+  .expanded {
+    @apply block;
+  }
+  @screen md {
+    .nav-links {
+      @apply ml-20 block static w-auto bg-transparent;
+    }
+    .nav-links a {
+      @apply inline-block py-3.5 px-5;
+    }
+    .hamburger {
+      @apply hidden;
+    }
+  }
+  .tags {
+    @apply flex flex-wrap;
+  }
+  .tag {
+    @apply m-1 border border-dotted border-gray-400 rounded-lg px-4 py-2 text-lg bg-sky-50;
+  }
+}
+
+/* Dark mode styles */
+@layer utilities {
+  html.dark {
+    @apply bg-blue-950 text-white;
+  }
+  html.dark .nav-links a {
+    @apply text-white;
+  }
+  html.dark a {
+    @apply text-white;
+  }
+  html.dark .tag a {
+    @apply text-blue-950;
+  }
+}
