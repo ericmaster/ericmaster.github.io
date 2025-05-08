@@ -1,0 +1,20 @@
+---
+// Props: posts: Array<{ title: string, pubDate: string, description: string, url: string }>
+const { posts } = Astro.props;
+---
+<section>
+  <h3>Latest Posts</h3>
+  <ul>
+    {posts.length === 0 ? (
+      <li>No posts yet.</li>
+    ) : (
+      posts.map(post => (
+        <li>
+          <a href={post.url}><strong>{post.title}</strong></a><br />
+          <small>Published: {post.pubDate}</small><br />
+          <span>{post.description}</span>
+        </li>
+      ))
+    )}
+  </ul>
+</section>
