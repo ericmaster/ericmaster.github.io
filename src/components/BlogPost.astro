@@ -1,4 +1,17 @@
 ---
-const { title, url } = Astro.props
+const { post } = Astro.props;
 ---
-<li><a href={url}>{title}</a></li>
+
+<li>
+  <>
+    <a href={post.url}>
+      <strong>{post.frontmatter.title}</strong>
+    </a>
+    <br />
+  </>
+  <>
+    <small>Published: {post.frontmatter.pubDate}</small>
+    <br />
+  </>
+  <span>{post.frontmatter.description}</span>
+</li>

@@ -1,6 +1,6 @@
 html {
   background-color: #f1f5f9;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -82,6 +82,20 @@ h1 {
   }
 }
 
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag {
+  margin: 0.25em;
+  border: dotted 1px #a1a1a1;
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+  font-size: 1.15em;
+  background-color: #f8fcfd;
+}
+
 html.dark {
   background-color: #0d192a;
   color: #fff;
@@ -92,5 +106,11 @@ html.dark {
 
   a {
     color: #fff;
+  }
+
+  .tag {
+    a {
+      color: #0d192a;
+    }
   }
 }

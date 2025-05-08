@@ -1,4 +1,5 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: 'Installing Self-managed Gitlab on your own server '
 pubDate: 2025-03-06
 description: 'Install your own self-hosted gitlab server.'
@@ -8,9 +9,6 @@ image:
     alt: 'The gitlab logo.'
 tags: ["git", "gitlab", "self-hosted"]
 ---
-# Installing Self-managed GitLab on your own server and setup
-
-Published on: 2025-03-06
 
 ## Introduction
 

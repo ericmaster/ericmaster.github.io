@@ -2,52 +2,20 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import LatestPosts from "../components/LatestPosts.astro";
 const pageTitle = "Home";
-
-// Automatically import all markdown posts from the posts folder
-const allPostImports = Object.entries(
-  await import.meta.glob("./posts/*.md", { eager: true })
-);
-const allPosts = allPostImports
-  .map(([filePath, post]) => {
-    // Defensive: ensure post is an object and has frontmatter
-    if (!post || typeof post !== "object" || !("frontmatter" in post))
-      return null;
-    const frontmatter =
-      (post as { frontmatter?: Record<string, any> }).frontmatter || {};
-    if ("published" in frontmatter && frontmatter.published === false)
-      return null;
-    const fileName = filePath.split("/").pop() || "";
-    return {
-      title: "title" in frontmatter ? frontmatter.title : fileName,
-      pubDate:
-        "pubDate" in frontmatter
-          ? frontmatter.pubDate
-          : "date" in frontmatter
-            ? frontmatter.date
-            : "",
-      description: "description" in frontmatter ? frontmatter.description : "",
-      url: `/posts/${fileName.replace(/\.md$/, "")}`,
-    };
-  })
-  .filter((p) => p !== null)
-  .sort((a, b) =>
-    b && a && b.pubDate && a.pubDate ? b.pubDate.localeCompare(a.pubDate) : 0
-  );
-const latestPosts = allPosts.slice(0, 5);
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <h2>Hi, I am Eric Aguayo!</h2>
+  <h2>Hey there — I'm Eric Aguayo! welcome to my corner of the web!</h2>
   <p>
-    Hey there — welcome to my corner of the web! I'm a software developer by
-    trade and an ultra trail runner at heart. Whether I’m coding up a new idea
-    or climbing mountain trails, I’m all about pushing limits and exploring new
-    frontiers. Right now, I’m working on two projects close to my heart: one to
-    help more people dive into the world of ultra running, and another to make
-    learning to code more approachable and fun. This blog is where I share my
-    journey — from tech experiments to trail adventures — and everything in
-    between. If you're into innovation, endurance, or just curious about
-    blending code with the great outdoors, you're in the right place.
+    I'm a software developer by trade and an ultra trail runner at heart.
+    Whether I’m coding up a new idea or climbing mountain trails, I’m all about
+    pushing limits and exploring new frontiers. Right now, I’m working on two
+    projects close to my heart: one to help more people dive into the world of
+    ultra running, and another to make learning to code more approachable and
+    fun. This blog is where I share my journey — from tech experiments to trail
+    adventures — and everything in between. If you're into innovation,
+    endurance, or just curious about blending code with the great outdoors,
+    you're in the right place.
   </p>
-  <LatestPosts posts={latestPosts} />
+  <LatestPosts />
 </BaseLayout>
