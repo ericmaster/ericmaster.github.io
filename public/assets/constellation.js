@@ -25,11 +25,21 @@ function createStars() {
   }
 }
 
+function getIsLightTheme() {
+  // Check prefers-color-scheme or body class for dark theme
+  return !document.documentElement.classList.contains('dark');
+}
+
 function drawStars() {
   ctx.clearRect(0, 0, width, height);
+  // Determine color based on theme
+  const isLight = getIsLightTheme();
+  console.log('isLight', isLight);
+  const starColor = isLight ? '#000' : '#fff';
+  const lineColor = isLight ? 'rgba(0,0,0,0.15)' : 'rgba(255,255,255,0.15)';
   // Draw lines
   ctx.save();
-  ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+  ctx.strokeStyle = lineColor;
   ctx.lineWidth = 1;
   for (let i = 0; i < STAR_COUNT; i++) {
     for (let j = i + 1; j < STAR_COUNT; j++) {
@@ -47,7 +57,7 @@ function drawStars() {
   ctx.restore();
   // Draw stars
   ctx.save();
-  ctx.fillStyle = '#fff';
+  ctx.fillStyle = starColor;
   for (let i = 0; i < STAR_COUNT; i++) {
     ctx.beginPath();
     ctx.arc(stars[i].x, stars[i].y, STAR_RADIUS, 0, Math.PI * 2);
