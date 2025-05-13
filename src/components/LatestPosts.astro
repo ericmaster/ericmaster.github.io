@@ -63,7 +63,7 @@ const latestPosts = (
               <br />
             </>
             <>
-              <small>Published: {post.pubDate}</small>
+              <small>Published: {post.pubDate.slice(0, 10)}</small>
               <br />
             </>
             <span>{post.description}</span>
