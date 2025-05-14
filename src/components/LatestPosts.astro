@@ -21,6 +21,10 @@ const allPosts = Object.entries(
           : "",
     description: "description" in frontmatter ? frontmatter.description : "",
     url: `/posts/${fileName.replace(/\.md$/, "")}`,
+    image_url:
+      "image" in frontmatter
+        ? frontmatter.image.url
+        : `/images/posts/${fileName.replace(/\.md$/, "")}.jpg`,
   };
 });
 const latestPosts = (
@@ -29,6 +33,7 @@ const latestPosts = (
     pubDate: string;
     description: string;
     url: string;
+    image_url: string;
   } | null>
 )
   .filter(
@@ -39,6 +44,7 @@ const latestPosts = (
       pubDate: string;
       description: string;
       url: string;
+      image_url: string;
     } => p !== null
   )
   .sort((a, b) =>
@@ -55,19 +61,30 @@ const latestPosts = (
         <li>No posts yet.</li>
       ) : (
         latestPosts.map((post) => (
-          <li>
-            <>
-              <a href={post.url}>
-                <h3>{post.title}</h3>
-              </a>
-              <br />
-            </>
-            <>
-              <small>Published: {post.pubDate.slice(0, 10)}</small>
-              <br />
-            </>
-            <span>{post.description}</span>
+          <li class="mb-8">
+            <a href={post.url} class="flex flex-col md:flex-row items-center md:items-start gap-6 mb-8">
+              <img
+                src={post.image_url}
+                alt={post.title}
+                class=""
+                loading="lazy"
+                decoding="async"
+                width="300"
+                height="200"
+              />
+              <div class="flex flex-col">
+                <h3>
+                  {post.title}
+                </h3>
+                <>
+                  <small>Published: {post.pubDate.slice(0, 10)}</small>
+                  <br />
+                </>
+                <span>{post.description}</span>
+              </div>
+            </a>
           </li>
+          <hr />
         ))
       )
     }

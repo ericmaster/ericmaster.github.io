@@ -34,7 +34,6 @@ function drawStars() {
   ctx.clearRect(0, 0, width, height);
   // Determine color based on theme
   const isLight = getIsLightTheme();
-  console.log('isLight', isLight);
   const starColor = isLight ? '#999' : '#fff';
   const lineColor = isLight ? 'rgba(6,6,6,0.12)' : 'rgba(255,255,255,0.15)';
   // Draw lines
