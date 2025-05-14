@@ -8,4 +8,4 @@ Blog, notes, dragons and stuff...
 
 or to expose via reverse-proxy for live reload preview
 
-`npm run dev -- --host 0.0.0.0 `
+`npm run dev -- --host 0.0.0.0`

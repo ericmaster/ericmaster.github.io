@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: 'Poppins', 'sans-serif';
+}
+
 /* Custom base styles using Tailwind utility classes */
 @layer base {
   html {
@@ -27,6 +31,9 @@
     @apply my-4 text-lg;
   }
   h6 {
+    @apply my-4 text-base;
+  }
+  p {
     @apply my-4 text-base;
   }
 }
