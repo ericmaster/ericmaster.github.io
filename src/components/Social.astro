@@ -1,13 +1,15 @@
 ---
 const { platform, username } = Astro.props
+
+import { Icon } from 'astro-icon/components'
 ---
-<a href={`https://www.${platform}.com/${username}`}>{platform}</a>
+<a href={`https://www.${platform}.com/${username}`} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2">
+  <Icon name={`mdi:${platform}`} class="w-8 h-8"/>
+</a>
 
 <style>
   a {
     padding: 0.5rem 1rem;
-    color: white;
-    background-color: #4c1d95;
     text-decoration: none;
   }
 </style>
