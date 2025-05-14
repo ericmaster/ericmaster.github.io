@@ -33,9 +33,6 @@
 
 /* Navigation styles */
 @layer components {
-  .hamburger {
-    @apply pr-5 cursor-pointer;
-  }
   .hamburger .line {
     @apply block w-10 h-1.5 mb-2.5 bg-white;
   }
@@ -48,9 +45,9 @@
   .expanded {
     @apply block;
   }
-  @screen md {
+  @media (min-width: 768px) {
     .nav-links {
-      @apply ml-20 block static w-auto bg-transparent;
+      @apply block static w-auto bg-transparent;
     }
     .nav-links a {
       @apply inline-block py-3.5 px-5;

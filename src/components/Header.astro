@@ -4,10 +4,10 @@ import Navigation from "./Navigation.astro";
 import ThemeIcon from "./ThemeIcon.astro";
 ---
 
-<header>
-  <nav>
-    <Hamburger />
+<header class="w-full flex items-center py-2 relative">
+  <Hamburger />
+  <Navigation />
+  <div class="ml-auto">
     <ThemeIcon />
-    <Navigation />
-  </nav>
+  </div>
 </header>
