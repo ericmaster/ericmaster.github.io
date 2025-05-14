@@ -11,3 +11,8 @@ import ThemeIcon from "./ThemeIcon.astro";
     <ThemeIcon />
   </div>
 </header>
+<script is:inline>
+  document.querySelector(".hamburger").addEventListener("click", () => {
+    document.querySelector(".nav-links").classList.toggle("expanded");
+  });
+</script>

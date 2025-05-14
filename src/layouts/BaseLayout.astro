@@ -14,14 +14,11 @@ const { pageTitle } = Astro.props;
     <title>Eric Aguayo (Ericmaster) | {pageTitle}</title>
   </head>
   <body class="container">
-    <canvas id="constellation-bg" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;"></canvas>
+    <canvas id="constellation-bg" class="fixed top-0 left-0 w-screen h-screen -z-10"></canvas>
     <Header />
     <h1>{pageTitle}</h1>
     <slot />
     <Footer />
-    <script>
-      import "../scripts/menu.js";
-    </script>
     <script src="/assets/constellation.js" is:inline></script>
   </body>
 </html>
