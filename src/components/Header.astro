@@ -4,7 +4,7 @@ import Navigation from "./Navigation.astro";
 import ThemeIcon from "./ThemeIcon.astro";
 ---
 
-<header class="w-full flex items-center py-2 relative">
+<header id="site-header" class="flex -mx-4 px-4 items-center relative sticky top-0 z-20 bg-slate-100/75 dark:bg-blue-950/75 transition-all duration-300">
   <Hamburger />
   <Navigation />
   <div class="ml-auto">
@@ -12,7 +12,12 @@ import ThemeIcon from "./ThemeIcon.astro";
   </div>
 </header>
 <script is:inline>
-  document.querySelector(".hamburger").addEventListener("click", () => {
-    document.querySelector(".nav-links").classList.toggle("expanded");
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      header.classList.add('header-scrolled');
+    } else {
+      header.classList.remove('header-scrolled');
+    }
   });
 </script>

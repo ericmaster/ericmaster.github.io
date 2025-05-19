@@ -16,7 +16,7 @@ const { pageTitle } = Astro.props;
   <body class="container">
     <canvas id="constellation-bg" class="fixed top-0 left-0 w-screen h-screen -z-10"></canvas>
     <Header />
-    <h1>{pageTitle}</h1>
+    <h1 class="page-title">{pageTitle}</h1>
     <slot />
     <Footer />
     <script src="/assets/constellation.js" is:inline></script>
