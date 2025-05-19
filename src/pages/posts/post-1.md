@@ -1,12 +1,12 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: 'Installing Self-managed Gitlab on your own server '
+title: "Installing a Self-managed Gitlab Instance on Your Server "
 pubDate: 2025-03-06
-description: 'Get control of your projects versioning and pipelines by installing your own self-hosted gitlab server.'
-author: 'Eric Aguayo'
+description: "When working with development tools, having a place to store and manage your code is essential. While many cloud-based services are available, a self-hosted solution offers greater control over versioning and CI/CD pipelines. You can achieve this by setting up your own GitLab server, providing full ownership and customization of your repositories and workflows."
+author: "Eric Aguayo"
 image:
-    url: 'https://images.ctfassets.net/xz1dnu24egyd/3JZABhkTjUT76LCIclV7sH/cc2f52df0e32f639eb01c06a4816ede0/gitlab-logo-500.svg'
-    alt: 'The gitlab logo.'
+  url: "/assets/images/installing-gitlab.jpg"
+  alt: "The gitlab logo."
 tags: ["git", "gitlab", "self-hosted"]
 ---
 
@@ -20,10 +20,10 @@ Just follow the [instructions from the official site](https://about.gitlab.com/i
 
 ## Why you may want a self-hosted GitLab instance.
 
-* Customization and personalization features
-* Access control
-* Security and privacy
-* Performance
+- Customization and personalization features
+- Access control
+- Security and privacy
+- Performance
 
 ## Installing gitlab
 
