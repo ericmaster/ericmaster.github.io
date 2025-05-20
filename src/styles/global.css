@@ -78,6 +78,15 @@
   #site-header {
     @apply py-2 text-lg;
   }
+  .post-card a * {
+    @apply text-white;
+  }
+  .post-card a:hover {
+    @apply transition-all duration-600 bg-indigo-800/40 shadow-lg
+  }
+  .post-card a:hover h3 {
+    @apply text-orange-200;
+  }
 }
 
 /* Dark mode styles */

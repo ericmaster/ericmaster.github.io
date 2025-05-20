@@ -1,23 +1,28 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import '@fontsource/poppins';
+import "@fontsource/poppins";
 import "../styles/global.css";
 const { pageTitle } = Astro.props;
 ---
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <title>Eric Aguayo (Ericmaster) | {pageTitle}</title>
   </head>
-  <body class="container">
-    <canvas id="constellation-bg" class="fixed top-0 left-0 w-screen h-screen -z-10"></canvas>
+  <body>
+    <canvas
+      id="constellation-bg"
+      class="fixed top-0 left-0 w-screen h-screen -z-10"></canvas>
     <Header />
     <h1 class="page-title">{pageTitle}</h1>
-    <slot />
+    <div class="container mx-auto w-full md:w-150 lg:w-200 xl:w-250">
+      <slot />
+    </div>
     <Footer />
     <script src="/assets/constellation.js" is:inline></script>
   </body>
