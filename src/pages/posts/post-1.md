@@ -8,6 +8,7 @@ image:
   url: "/assets/images/installing-gitlab.jpg"
   alt: "The gitlab logo."
 tags: ["git", "gitlab", "self-hosted"]
+published: true
 ---
 
 ## Introduction

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ericmaster.github.io/sitemap.xml
