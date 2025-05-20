@@ -89,7 +89,7 @@
     @apply text-white;
   }
   html.dark a {
-    @apply text-white;
+    @apply text-orange-200;
   }
   html.dark .tag a {
     @apply text-blue-950;
