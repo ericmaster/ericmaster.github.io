@@ -6,5 +6,14 @@ const pageTitle = frontmatter.title;
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <Content />
+  <div class="flex flex-col sm:block items-start">
+    <img
+      src="/assets/images/about.jpg"
+      alt="Eric Aguayo"
+      class="max-w-xs w-full h-auto rounded-xl shadow-lg float-none sm:float-left mb-4 sm:mb-0 sm:mr-6"
+    />
+    <div class="flex-1">
+      <Content />
+    </div>
+  </div>
 </BaseLayout>
