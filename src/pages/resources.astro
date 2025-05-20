@@ -1,0 +1,10 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const resources = await import("./resources-content.md");
+const { Content, frontmatter } = resources;
+const pageTitle = frontmatter.title;
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <Content />
+</BaseLayout>

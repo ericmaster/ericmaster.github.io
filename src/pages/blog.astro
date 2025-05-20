@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogPost from "../components/BlogPost.astro";
-const pageTitle = "Blog";
+const pageTitle = "My Awesome Blog";
 const allPosts = Object.values(
   await import.meta.glob("./posts/*.md", { eager: true })
 );

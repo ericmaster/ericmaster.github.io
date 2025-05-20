@@ -1,0 +1,10 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const work = await import("./work-content.md");
+const { Content, frontmatter } = work;
+const pageTitle = frontmatter.title;
+---
+
+<BaseLayout pageTitle={pageTitle}>
+  <Content />
+</BaseLayout>
