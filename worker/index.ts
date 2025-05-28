@@ -1,16 +1,16 @@
-import { WorkerEntrypoint } from "cloudflare:workers";
-
-export default class extends WorkerEntrypoint {
-  async fetch(request: Request) {
+export default {
+  async fetch(
+    request: Request,
+    env: unknown,
+    // ctx: ExecutionContext
+  ): Promise<Response> {
+    const { GH_CLIENT_ID: client_id, GH_CLIENT_SECRET: client_secret } = env as { GH_CLIENT_ID: string; GH_CLIENT_SECRET: string; };
     const url = new URL(request.url);
     if (!url.pathname.includes("/api/auth")) {
       return new Response(null, { status: 404 });
     }
 
     const code = url.searchParams.get("code");
-
-    const client_id = import.meta.env.GH_CLIENT_ID;
-    const client_secret = import.meta.env.GH_CLIENT_SECRET;
 
     if (!code) {
       const params = new URLSearchParams({
@@ -39,7 +39,7 @@ export default class extends WorkerEntrypoint {
         }),
       }
     );
-    const tokenData = await tokenRes.json();
+    const tokenData = (await tokenRes.json()) as { access_token?: string };
     if (!tokenData.access_token) {
       return new Response("OAuth failed", { status: 401 });
     }
@@ -72,4 +72,4 @@ export default class extends WorkerEntrypoint {
       headers: { "Content-Type": "text/html" },
     });
   }
-}
+} satisfies ExportedHandler;
