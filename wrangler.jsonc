@@ -1,7 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "ericmaster.ninja",
-  // Update to today's date
+  "name": "ericmaster_ninja",
   "compatibility_date": "2025-05-28",
   "assets": {
     "directory": "./dist"
