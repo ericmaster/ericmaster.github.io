@@ -3,7 +3,7 @@ backend:
   repo: ericmaster/ericmaster.github.io
   branch: main
   auth_scope: repo
-  base_url: https://ericmaster.github.io
+  base_url: https://ericmaster.ninja
   auth_endpoint: /api/auth
 # local_backend:
 #   url: http://192.168.1.120:8081/api/v1
