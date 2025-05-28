@@ -1,0 +1,36 @@
+backend:
+  name: github
+  repo: ericmaster/ericmaster.github.io
+  branch: main
+  auth_scope: repo
+  base_url: https://ericmaster.github.io
+  auth_endpoint: /api/auth
+# local_backend:
+#   url: http://192.168.1.120:8081/api/v1
+#   allowed_hosts: ["192.168.1.120"]
+# backend:
+#   name: git-gateway
+media_folder: public/assets/images
+public_folder: assets/images
+collections:
+  - name: "posts"
+    label: "Posts"
+    folder: "src/pages/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "../../layouts/MarkdownPostLayout.astro"}
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Published", name: "published", widget: "boolean" }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Date", name: "pubDate", widget: "datetime" }
+      - label: "Image"
+        name: "image"
+        widget: "object"
+        collapsed: false
+        fields:
+          - { label: "Image", name: "url", widget: "image" }
+          - { label: "Alt", name: "alt", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }

@@ -1,16 +1,23 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: "Installing a Self-managed Gitlab Instance on Your Server (Debian 12)"
 pubDate: 2025-03-06
-description: "When working with development tools, having a place to store and manage your code is essential. While many cloud-based services are available, a self-hosted solution offers greater control over versioning and CI/CD pipelines. You can achieve this by setting up your own GitLab server, providing full ownership and customization of your repositories and workflows."
-author: "Eric Aguayo"
-image:
-  url: "/assets/images/installing-gitlab.jpg"
-  alt: "The gitlab logo."
-tags: ["git", "gitlab", "self-hosted"]
+author: Eric Aguayo
+title: Installing a Self-managed Gitlab Instance on Your Server (Debian 12)
 published: true
+tags:
+  - git
+  - gitlab
+  - self-hosted
+slug: installing-self-managed-gitlab-instance-debian-12
+image:
+  url: /assets/images/installing-gitlab.jpg
+  alt: The gitlab logo.
+description: When working with development tools, having a place to store and
+  manage your code is essential. While many cloud-based services are available,
+  a self-hosted solution offers greater control over versioning and CI/CD
+  pipelines. You can achieve this by setting up your own GitLab server,
+  providing full ownership and customization of your repositories and workflows.
 ---
-
 ## Introduction
 
 If you are reading this, you are probably already familiar with GitLab, and probably already have an account in [GitLab Cloud Service](https://www.gitlab.com) or a similar cloud service. If this is not the case, no worries I will briefly explain what GitLab is and why you may want to self-host your own instance.
@@ -52,6 +59,7 @@ You can optionally install `postfix` if you want to send notification emails in 
 ```bash
 $ sudo apt-get install -y postfix
 ```
+
 <br />
 
 ### Step 2. Add the GitLab package repository and install the package
@@ -79,7 +87,6 @@ then retry the setup with `gitlab-ctl reconfigure`
 After you leave it running for a while, if everything ran successfully it will output the following text (with the `EXTERNAL_URL` you set)
 
 ```
-
        *.                  *.
       ***                 ***
      *****               *****
