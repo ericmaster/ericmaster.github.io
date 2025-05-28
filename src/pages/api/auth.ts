@@ -2,12 +2,15 @@
 export async function GET({ request }) {
   const url = new URL(request.url);
   const code = url.searchParams.get("code");
-  if (!code) {
-    return new Response("Missing code", { status: 400 });
-  }
-
+  
   const client_id = import.meta.env.GH_CLIENT_ID;
   const client_secret = import.meta.env.GH_CLIENT_SECRET;
+
+  if (!code) {
+    // return new Response("Missing code", { status: 400 });
+    const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent("https://ericmaster.github.io/api/auth")}&scope=read:user user:email repo`;
+    return Response.redirect(githubAuthUrl);
+  }
 
   // Exchange code for access token
   const tokenRes = await fetch("https://github.com/login/oauth/access_token", {
@@ -20,6 +23,7 @@ export async function GET({ request }) {
       client_id,
       client_secret,
       code,
+      redirect_uri: "https://ericmaster.github.io/api/auth",
     }),
   });
   const tokenData = await tokenRes.json();
