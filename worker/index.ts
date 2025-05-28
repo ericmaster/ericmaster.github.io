@@ -15,7 +15,7 @@ export default {
     if (!code) {
       const params = new URLSearchParams({
         client_id: client_id,
-        redirect_uri: "https://ericmaster.github.io/api/auth",
+        redirect_uri: "https://ericmaster.ninja/api/auth",
         scope: "read:user user:email repo",
       });
       const githubAuthUrl = `https://github.com/login/oauth/authorize?${params.toString()}`;
@@ -35,7 +35,7 @@ export default {
           client_id,
           client_secret,
           code,
-          redirect_uri: "https://ericmaster.github.io/api/auth",
+          redirect_uri: "https://ericmaster.ninja/api/auth",
         }),
       }
     );
