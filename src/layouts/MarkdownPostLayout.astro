@@ -11,7 +11,9 @@ const { frontmatter } = Astro.props;
 
   <div class="w-full aspect-[16/9] mb-4">
     <img
-      src={frontmatter.image.url}
+      src={frontmatter.image.url.startsWith("/")
+        ? frontmatter.image.url
+        : `/${frontmatter.image.url}`}
       alt={frontmatter.image.alt}
       class="w-full h-full object-cover object-top rounded"
       loading="lazy"
@@ -34,10 +36,11 @@ const { frontmatter } = Astro.props;
     // Open all external links in a new tab
     if (typeof window !== "undefined") {
       window.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll('a[href^="http"]').forEach(link => {
-          if (!link.href.includes(window.location.hostname)) {
-            link.setAttribute("target", "_blank");
-            link.setAttribute("rel", "noopener noreferrer");
+        document.querySelectorAll('a[href^="http"]').forEach((link) => {
+          const anchor = link as HTMLAnchorElement;
+          if (!anchor.href.includes(window.location.hostname)) {
+            anchor.setAttribute("target", "_blank");
+            anchor.setAttribute("rel", "noopener noreferrer");
           }
         });
       });
