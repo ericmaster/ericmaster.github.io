@@ -2,13 +2,15 @@
 export async function GET({ request }) {
   const url = new URL(request.url);
   const code = url.searchParams.get("code");
-  
+
   const client_id = import.meta.env.GH_CLIENT_ID;
   const client_secret = import.meta.env.GH_CLIENT_SECRET;
 
   if (!code) {
     // return new Response("Missing code", { status: 400 });
-    const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent("https://ericmaster.github.io/api/auth")}&scope=read:user user:email repo`;
+    const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${client_id}&redirect_uri=${encodeURIComponent(
+      "https://ericmaster.github.io/api/auth"
+    )}&scope=read:user user:email repo`;
     return Response.redirect(githubAuthUrl);
   }
 
