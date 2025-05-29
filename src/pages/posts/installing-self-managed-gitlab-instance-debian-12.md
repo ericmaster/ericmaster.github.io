@@ -2,9 +2,10 @@
 layout: ../../layouts/MarkdownPostLayout.astro
 pubDate: 2025-03-06
 author: Eric Aguayo
-title: Installing a Self-managed Gitlab Instance on Your Server (Debian 12)
+title: Host Your Own GitLab Repository Server on Linux (Debian 12)
 published: true
 tags:
+  - devops
   - git
   - gitlab
   - self-hosted
