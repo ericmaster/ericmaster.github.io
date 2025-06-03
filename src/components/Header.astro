@@ -4,20 +4,37 @@ import Navigation from "./Navigation.astro";
 import ThemeIcon from "./ThemeIcon.astro";
 ---
 
-<header id="site-header" class="flex -mx-4 px-4 items-center relative sticky top-0 z-20 bg-slate-100/75 dark:bg-blue-950/75 transition-all duration-300">
-  <Hamburger />
-  <Navigation />
+<header
+  id="site-header"
+  x-data="{ navOpen: false }"
+  class="flex -mx-4 px-4 items-center relative sticky top-0 z-20 bg-slate-100/75 transition-all duration-300"
+>
+  <Hamburger
+    aria-expanded="false"
+    aria-controls="site-navigation"
+    @click="navOpen = !navOpen"
+    :aria-expanded="navOpen.toString()"
+    :open="navOpen"
+  />
+  <Navigation
+    id="site-navigation"
+    :class="{'block': navOpen, 'hidden': !navOpen}"
+    :open="navOpen"
+  />
   <div class="ml-auto">
     <ThemeIcon />
   </div>
 </header>
 <script is:inline>
-  const header = document.getElementById('site-header');
-  window.addEventListener('scroll', () => {
+  const header = document.getElementById("site-header");
+  window.addEventListener("scroll", () => {
     if (window.scrollY > 20) {
-      header.classList.add('header-scrolled');
+      header.classList.add("header-scrolled");
     } else {
-      header.classList.remove('header-scrolled');
+      header.classList.remove("header-scrolled");
     }
   });
 </script>
+<!-- Alpine.js CDN for interactivity -->
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer
+></script>
